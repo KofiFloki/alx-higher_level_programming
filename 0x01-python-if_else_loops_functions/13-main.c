@@ -4,7 +4,7 @@
 #include "lists.h"
 
 /**
- * main - check the code for ALX School students.
+ * main - check the code for
  *
  * Return: Always 0.
  */
