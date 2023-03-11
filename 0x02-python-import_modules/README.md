@@ -1,1 +1,1 @@
-This is a README file for the Import modules project
+This the README file for the import modules project
