@@ -1,11 +1,13 @@
 #!/usr/bin/python3
 
-def multiple_returns(sentence):
-    length = len(sentence)
-    if length == 0:
-        result = (0, None)
-        return result
-    else:
-        res = (length, sentence[0:1])
-        return res
+def max_integer(my_list=[]):
+    if len(my_list) == 0:
+        return
 
+    large = my_list[0]
+    for i in range(1, len(my_list)):
+        if large < my_list[i]:
+            large = my_list[i]
+        else:
+            continue
+    return large
