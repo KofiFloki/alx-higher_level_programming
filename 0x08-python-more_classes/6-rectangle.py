@@ -56,7 +56,7 @@ class Rectangle:
         if self._width == 0 or self._height == 0:
             return k
         while j < self._height:
-            while i < self.width:
+            while i < self.iwidth:
                 k += "#"
                 i += 1
             j += 1
@@ -67,3 +67,8 @@ class Rectangle:
 
     def __repr__(self):
         return "Rectangle({:d}, {:d})".format(self._width, self._height)
+
+    def __del__(self):
+        """prints a message for every object that is deleted"""
+        print("Bye rectangle...")
+        type(self).number_of_instances -= 1
