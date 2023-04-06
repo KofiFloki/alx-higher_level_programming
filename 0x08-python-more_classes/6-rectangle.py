@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-this is the 5-rectangle Module
+this is the 6-rectangle Module
 which provides the class Rectangle
 the rectangle has two attributes width and height
 """
@@ -17,7 +17,7 @@ class Rectangle:
         """
         self.width = width
         self.height = height
-       type(self). number_of_instances += 1
+       type(self).number_of_instances += 1
 
     @property
     def width(self):
