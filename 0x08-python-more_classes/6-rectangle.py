@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-this is the 6-rectangle Module
+this is the 5-rectangle Module
 which provides the class Rectangle
 the rectangle has two attributes width and height
 """
