@@ -6,21 +6,21 @@ prints the text with 2 lines after each "." or "?"
 """
 
 
-def text_indentation(text):
-    """
-    Returns the formatted text
-    """
-    
-    if type(text) is not str:
-        raise TypeError("text must be a string")
 
-    s = text[:]
-
-    for d in ".?:":
-        list_text = s.split(d)
-        s = ""
-        for i in list_text:
-            i = i.strip(" ")
-            s = i + d if s is "" else s + "\n\n" + i + d
-
-    print(s[:-3], end="")
+def print_square(size):
+    """prints a square using the character '#'"""
+    if type(size) is not int:
+        raise TypeError("size must be an integer")
+    if size < 0:
+        raise ValueError("size must be >= 0")
+    if type(size) is float and size < 0:
+        raise TypeError("size must be an integer")
+    a = 0
+    b = 0
+    while a < size:
+        while b < size:
+            print("#", end="")
+            b += 1
+        b = 0
+        a += 1
+        print()
