@@ -10,19 +10,17 @@ def text_indentation(text):
     """
     Returns the formatted text
     """
-    if type(text) not in [str]:
+    
+    if type(text) is not str:
         raise TypeError("text must be a string")
 
-    text = text.strip()
-    new_text = ""
-    for character in text:
-        if character == "." or character == "?" or character == ":":
-            new_text += character + "\n\n"
-        else:
-            new_text += character
-    lines = new_text.split("\n")
-    stripped_lines = []
-    for line in lines:
-        stripped_lines.append(line.strip())
-    real_text = "\n".join(stripped_lines)
-    print("{:s}".format(real_text), end="")
+    s = text[:]
+
+    for d in ".?:":
+        list_text = s.split(d)
+        s = ""
+        for i in list_text:
+            i = i.strip(" ")
+            s = i + d if s is "" else s + "\n\n" + i + d
+
+    print(s[:-3], end="")
