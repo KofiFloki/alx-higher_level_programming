@@ -1,16 +1,16 @@
 #!/usr/bin/python3
 """
 this is the 7-rectangle Module
-which provides the class Rectangle
+this module provides the class Rectangle
 the rectangle has two attributes width and height
 """
 
 
 class Rectangle:
-    """This defines the class"""
+    """defines the class"""
 
     number_of_instances = 0
-    print_symbol = "#"
+    print_symbol = None
 
     def __init__(self, width=0, height=0):
         """
@@ -66,21 +66,23 @@ class Rectangle:
             return 0
         return 2 * (self.__width + self.__height)
 
+    print_symbol = "#"
+
     def __str__(self):
-        x = 0
-        y = 0
-        z = ""
+        a = 0
+        b = 0
+        s = ""
         if self.__width == 0 or self.__height == 0:
-            return z
-        while y < self.__height:
-            while x < self.width:
-                z += "#"
-                x += 1
-            y += 1
-            x = 0
-            if y < self.__height:
-                z += "\n"
-        return z
+            return s
+        while b < self.__height:
+            while a < self.width:
+                s += "{}".format(self.print_symbol)
+                a += 1
+            b += 1
+            a = 0
+            if b < self.__height:
+                s += "\n"
+        return s
 
     def __repr__(self):
         return "Rectangle({:d}, {:d})".format(self.__width, self.__height)
