@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-The '10-square' module defines a class square
+The '10-square' module defines a class square.
 Square is a subclass of Rectangle
 """
 
