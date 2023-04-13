@@ -1,18 +1,24 @@
 #!/usr/bin/python3
-"""This module adds all arguments to a Python list and save them to a file."""
+"""
+this is the 7-add_item module
+which adds all arguments to a python list
+"""
 
-
-import sys
+from sys import argv
 """imports the module needed to get arguments"""
 
-if __name__ == "__main__":
-    save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
-    load_from_json_file = \
-        __import__('6-load_from_json_file').load_from_json_file
 
-    try:
-        items = load_from_json_file("add_item.json")
-    except FileNotFoundError:
-        items = []
-    items.extend(sys.argv[1:])
-    save_to_json_file(items, "add_item.json"
+save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
+"""imports the function save_to_json_file"""
+
+load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
+"""imports the function load_from_json_file"""
+
+myFile = "add_item.json"
+
+try:
+    file_content = load_from_json_file(myFile)
+except Exception:
+    file_content = []
+
+save_to_json_file(file_content + argv[1:], myFile)i
