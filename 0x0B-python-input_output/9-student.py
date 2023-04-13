@@ -1,4 +1,4 @@
-#!/usr/bin/pyhtob=n3
+#!/usr/bin/pyhton3
 """
 This contains the class "Student"
 """
