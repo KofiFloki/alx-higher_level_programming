@@ -1,11 +1,32 @@
 #!/usr/bin/python3
-"""Defines a rectangle class"""
+"""
+this is the `rectangle` module
+this module inherits from the base module
+it inherits Base
+"""
+
+
 from models.base import Base
 
 
 class Rectangle(Base):
-    """defines the class Rectangle"""
-
+    """
+    defines the class Rectangle; inherits from class Base
+    Inherited Attributes:
+        id
+    Class Attributes:
+        __width         __height
+        __x             __y
+    Methods:
+        __init__(self, width, height, x=0, y=0, id=None):
+        update(self, *args, **kwargs)
+        width(self)     width(self, value)
+        x(self)         x(self, value)
+        height(self)    height(self, value)
+        y(self)         y(self, value)
+        area(self)      display(self)
+        __str__         to_dictionary(self)
+    """
     def __init__(self, width, height, x=0, y=0, id=None):
         """intializes the class with these parameters"""
         super().__init__(id)
@@ -102,6 +123,7 @@ class Rectangle(Base):
         return s
 
     def update(self, *args, **kwargs):
+        """defines the update method"""
         if args:
             attrs = ['id', 'width', 'height', 'x', 'y']
             for i, arg in enumerate(args):
@@ -111,6 +133,7 @@ class Rectangle(Base):
                 setattr(self, key, value)
 
     def to_dictionary(self):
+        """returns a dictionary representation of rectangle"""
         s = {}
         s['id'] = self.id
         s['width'] = self.__width
