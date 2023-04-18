@@ -5,11 +5,9 @@ Unittest for Square
 
 
 import pep8
-import os
 import unittest
 from io import StringIO
 from contextlib import redirect_stdout
-from models import rectangle
 from models import square
 Square = square.Square
 
@@ -45,11 +43,16 @@ class TestSquare(unittest.TestCase):
             Square({"a": 4})
         with self.assertRaisesRegex(ValueError, "width must be > 0"):
             Square(0)
-            Square(-2)
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            Square(-1)
         with self.assertRaisesRegex(ValueError, "x must be >= 0"):
             Square(4, -2)
         with self.assertRaisesRegex(ValueError, "y must be >= 0"):
             Square(4, 2, -2)
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Square(1, "2")
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Square(1, 2, "3")
 
     def test_private(self):
         """test if private attributes are private"""
@@ -62,7 +65,9 @@ class TestSquare(unittest.TestCase):
         """test too many and too few"""
         with self.assertRaises(TypeError):
             Square(8, 2, 4, 2, 1)
+        with self.assertRaises(TypeError):
             Square()
+        with self.assertRaises(TypeError):
             Square(None)
 
     def test_Square(self):
