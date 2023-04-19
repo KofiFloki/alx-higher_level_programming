@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 """
-this is the `rectangle` module
-this module inherits from the base module
-it inherits Base
+The `rectangle` module
+inherits from the base module
 """
 
 
@@ -123,7 +122,8 @@ class Rectangle(Base):
         return s
 
     def update(self, *args, **kwargs):
-        """defines the update method"""
+        """""
+        Updates the attributes of the rectangle with the specified values."""
         if args:
             attrs = ['id', 'width', 'height', 'x', 'y']
             for i, arg in enumerate(args):
