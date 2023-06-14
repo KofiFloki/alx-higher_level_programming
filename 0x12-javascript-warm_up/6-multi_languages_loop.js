@@ -1,5 +1,5 @@
 #!/usr/bin/node
-// This prints 3 lines using a loop
+// Prints 3 lines using a loop
 
 const lines = ['C is fun', 'Python is cool', 'JavaScript is amazing'];
 let num = 0;
