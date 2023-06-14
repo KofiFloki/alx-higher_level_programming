@@ -1,7 +1,7 @@
 #!/usr/bin/node
-module.exports = class Rectagle {
-	constructor (w, h) {
-		this.width = q;
-		this.height = h;
-	}
+module.exports = class Rectangle {
+  constructor (w, h) {
+    this.width = w;
+    this.height = h;
+  }
 };
