@@ -1,15 +1,9 @@
 #!/usr/bin/node
-// A script that searches for the second largest integer
-
-const { argv } = require('process');
-const arrArgv = argv.slice(2);
-function secondBiggest (arr) {
-  if (arr.length < 2) {
-    return (0);
-  } else {
-    arr.sort((a, b) => b - a);
-    // arr.sort((a, b) => a - b) sorts in ascending order
-    return (arr[1]);
-  }
+if (process.argv.length <= 3) {
+  console.log(0);
+} else {
+  const args = process.argv.map(Number)
+    .slice(2, process.argv.length)
+    .sort((a, b) => a - b);
+  console.log(args[args.length - 2]);
 }
-console.log(secondBiggest(arrArgv));
