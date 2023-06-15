@@ -1,12 +1,6 @@
 #!/usr/bin/node
-// Prints a message depending of the number of arguments
-
-const { argv } = require('process');
-
-if (argv.length === 2) {
-  console.log('No argument');
-} else if (argv.length === 3) {
-  console.log('Argument found');
-} else {
-  console.log('Arguments found');
-}
+module.exports = class Rectangle {
+  constructor (w, h) {
+    if (w > 0 && h > 0) { [this.width, this.height] = [w, h]; }
+  }
+};
