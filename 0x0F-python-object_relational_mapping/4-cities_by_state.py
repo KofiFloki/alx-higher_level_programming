@@ -1,32 +1,32 @@
 #!/usr/bin/python3
-"""
-A script that lists all cities
-from the database hbtn_0e_4_usa
-Sorted in ascending by cities id
-"""
-import MySQLdb
-from sys import argv
+"""Lists all cities from the database hbtn_0e_4_usa"""
 
+if __name__ == '__main__':
+    from sys import argv
+    import MySQLdb as mysql
 
-if __name__ == "__main__":
-    """all code inside this block will not be
-    executed if imported"""
+    if (len(argv) != 4):
+        print('Use: username, password, database name')
+        exit(1)
 
-    db = MySQLdb.connect(host="localhost",
-                         port=3306,
-                         user=argv[1],
-                         passwd=argv[2],
-                         database=argv[3])
-    cur = db.cursor()
-    query = """SELECT cities.id, cities.name, states.name
-               FROM states
-               JOIN cities
-               WHERE states.id = cities.state_id
-               ORDER BY cities.id"""
+    try:
+        db = mysql.connect(host='localhost', port=3306, user=argv[1],
+                           passwd=argv[2], db=argv[3])
+    except Exception:
+        print('Failed to connect to the database')
+        exit(0)
 
-    cur.execute(query)
-    for city in cur.fetchall():
-        print(city)
+    cursor = db.cursor()
 
-    cur.close()
+    cursor.execute("""SELECT c.id, c.name, s.name FROM cities as c
+                      INNER JOIN states as s
+                      ON c.state_id = s.id
+                      ORDER BY c.id ASC;""")
+
+    result_query = cursor.fetchall()
+
+    for row in result_query:
+        print(row)
+
+    cursor.close()
     db.close()
