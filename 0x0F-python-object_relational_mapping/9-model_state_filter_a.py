@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-A python script that
-Lists the first state objects from the database
+A py script that
+lists the first state objects from the database
 hbtn_0e_6_usa
 """
 from sqlalchemy.orm import sessionmaker
