@@ -10,17 +10,13 @@ request(url, function (err, response, body) {
   } else if (response.statusCode === 200) {
     const dic = {};
     const tasks = JSON.parse(body);
-    for (const i in tasks) {
-      if (tasks[i].completed) {
-        if (dic[tasks[i].userId] === undefined) {
-          dic[tasks[i].userId] = 1;
-        } else {
-          dic[tasks[i].userId]++;
-        }
+    tasks.forEach((task) => {
+      if (task.completed && dic[task.userId] === undefined) {
+        dic[task.userId] = 1;
+      } else if (task.completed) {
+        dic[task.userId]++;
       }
-    }
+    });
     console.log(dic);
-  } else {
-    console.log('Error code: ' + response.statusCode);
   }
 });
