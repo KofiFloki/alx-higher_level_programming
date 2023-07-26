@@ -1,5 +1,5 @@
 #!/usr/bin/node
-// A  script that reads and prints the content of a file.
+// A script that writes a string to a file
 
 const filename = process.argv[2];
 const text = process.argv[3];
